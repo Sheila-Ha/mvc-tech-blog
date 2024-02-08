@@ -3,7 +3,7 @@ const express = require('express');
 const session = require('express-session');
 const routes = require('./controllers');
 const exphbs = require('express-handlebars');
-
+const helpers = require('./utils/helpers');
 
 
 // Import the connection object
@@ -16,7 +16,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Set up handlebars.js engine
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 app.engine('handlebars', hbs.engine); 
 app.set('view engine', 'handlebars');
 
