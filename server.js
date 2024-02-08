@@ -38,10 +38,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
 app.use(express.static(path.join(_dirname, 'public')));
 
-// Routes
+// Turn on routes
 app.use(routes);
 
-// Connect to the database before starting the Express.js server
+// Turn on the connection to the db and server
 sequelize.sync().then(() => {
   app.listen(PORT, () => console.log('Now Listening'));
 });
