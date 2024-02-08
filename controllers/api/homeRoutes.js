@@ -2,7 +2,7 @@ const router = require("express").Router();
 const { Post, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
-// Get all Blogs
+// Get all Posts
 router.get("/", async (req, res) => {
   try {
     // Get all projects and join with user data
@@ -15,10 +15,11 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const blogs = dbPostData.map((blog) => post.get({ plain: true }));
+    const posts = dbPostData.map((blog) => posts.get({ plain: true }));
 
     res.render("homepage", {
-      post,
+      posts,
+      loggedIn: req.session.loggedIn,
     });
   } catch (err) {
     console.log(err);
@@ -27,3 +28,40 @@ router.get("/", async (req, res) => {
 });
 
 // Get one Post
+// router.get("/post/:id", async (req, res) => {
+//   // If user is not logged in, redirect the user to the login page
+//   if (!req.session.loggedIn) {
+//     res.redirect('/login');
+//   } else {
+//     //If user is logged in, allow them to view the posts
+//     try {
+//       const dbPostData = await Post.findByPk(req.params.id, {
+//         include [
+//           {
+//             model: User,
+//             attributes: [
+
+//             ]
+//           }
+//         ]
+//       })
+//     }
+//   }
+// });
+
+// Serialize date 
+
+// Pass serialized data
+
+// Use withAuthmiddleware to prevent access to route
+
+router.get("login", (req, res) => {
+  // If user is already logged in, redirect the request to another route
+  if (req.session.logged_in) {
+    res.redirect("/profile");
+    return;
+  }
+  res.render("login");
+});
+
+module.exports = router;
