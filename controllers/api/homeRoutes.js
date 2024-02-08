@@ -1,12 +1,12 @@
 const router = require("express").Router();
-const { Blog, User } = require("../../models");
+const { Post, User } = require("../../models");
 const withAuth = require("../../utils/auth");
 
 // Get all Blogs
 router.get("/", async (req, res) => {
   try {
     // Get all projects and join with user data
-    const dbBlogData = await Blog.findAll({
+    const dbPostData = await Post.findAll({
       include: [
         {
           model: User,
@@ -15,13 +15,15 @@ router.get("/", async (req, res) => {
       ],
     });
 
-    const blogs = dbBlogData.map((blog) => blog.get({ plain: true }));
+    const blogs = dbPostData.map((blog) => post.get({ plain: true }));
 
     res.render("homepage", {
-      blogs,
+      post,
     });
   } catch (err) {
     console.log(err);
     res.status(500).json(err);
   }
 });
+
+// Get one Post
