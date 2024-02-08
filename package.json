@@ -1,0 +1,27 @@
+{
+  "name": "mvc-tech-blog",
+  "version": "1.0.0",
+  "description": "CMS-style blog site to publish articales, blog posts and my thoughts and opinions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sheila-Ha/mvc-tech-blog.git"
+  },
+  "author": "Sheila Hanson",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "connect-session-sequelize": "^7.1.7",
+    "dotenv": "^16.4.1",
+    "express-handlebars": "^7.1.2",
+    "express-session": "^1.18.0",
+    "inquirer": "^8.2.4",
+    "jest": "^29.7.0",
+    "mysql2": "^3.9.1",
+    "prettier": "^3.2.5",
+    "sequelize": "^6.36.0"
+  }
+}
