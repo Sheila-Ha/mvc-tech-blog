@@ -1,7 +1,7 @@
 [
   {
-    "name": "Traditional Bonein Wings Near Me",
-    "description": "A mobile app that will send you notifications whenever restaurants near by has them on the menu.",
+    "name": "Traditional Bone-in Wings Near Me",
+    "description": "A mobile app that will send you notifications whenever restaurants near by has bone-in wings on the menu.",
     "needed_funding": 5000
   },
   {
@@ -18,5 +18,4 @@
     "post": "Test",
     "description": "test"
   }
-  
 ]

@@ -1,7 +1,7 @@
 {
   "name": "mvc-tech-blog",
   "version": "1.0.0",
-  "description": "CMS-style blog site to publish articales, blog posts and my thoughts and opinions",
+  "description": "CMS-style blog site to publish articles, blog posts and my thoughts and opinions",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,6 +16,9 @@
     "bcrypt": "^5.1.1",
     "connect-session-sequelize": "^7.1.7",
     "dotenv": "^16.4.1",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "express": "^4.18.2",
     "express-handlebars": "^7.1.2",
     "express-session": "^1.18.0",
     "inquirer": "^8.2.4",
