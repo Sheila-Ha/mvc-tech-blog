@@ -53,7 +53,25 @@ router.get("/", async (req, res) => {
 
 // Pass serialized data
 
-// Use withAuthmiddleware to prevent access to route
+// Use withAuth middleware to prevent access to route
+router.get('/profile', withAuth, async (req, res) => {
+  try {
+    //find the logged in user based on the session ID
+    const newUserData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ['password'] },
+      include: [{ model: Project }],
+    });
+
+    const user = userData.get({ plain: true });
+
+    res.render('profile', {
+      ...user,
+      logged_in: true
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get("login", (req, res) => {
   // If user is already logged in, redirect the request to another route
@@ -61,6 +79,7 @@ router.get("login", (req, res) => {
     res.redirect("/profile");
     return;
   }
+  
   res.render("login");
 });
 

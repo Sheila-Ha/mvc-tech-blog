@@ -17,8 +17,8 @@ const PORT = process.env.PORT || 3001;
 
 // Set up handlebars.js engine
 const hbs = exphbs.create({ helpers });
-app.engine('handlebars', hbs.engine); 
-app.set('view engine', 'handlebars');
+  app.engine('handlebars', hbs.engine); 
+  app.set('view engine', 'handlebars');
 
 // Session
 const sess = {
