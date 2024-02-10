@@ -1,11 +1,11 @@
 const router = require("express").Router();
 const { Project, User } = require("../../models");
-const withAuth = require("../../utils/auth");
+// Wk 14, 3 day 1:25
+const { isAuthenticatedUser } = require("../../middleware/is-authenticated");
 
-// Get all Projects
+// Get all projects for homepage
 router.get("/", async (req, res) => {
   try {
-    // Get all projects and join with user data
     const projectData = await Project.findAll({
       include: [
         {
@@ -28,6 +28,8 @@ router.get("/", async (req, res) => {
     res.status(500).json(err);
   }
 });
+// (1:20 3rd day)
+router.use(isAuthenticatedUser);
 
 // Get one project
 router.get("/project/:id", async (req, res) => {
@@ -36,37 +38,27 @@ router.get("/project/:id", async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ["name"],
+          attributes: ["id", "title", "project_body", "user_id", "created_at"],
         },
       ],
     });
 
     const project = projectData.get({ plain: true });
-
-    res.render("project", {
-      ...project,
-      logged_in: req.session.logged_in,
-    });
+    res.render("project", { project, loggedIn: req.session.loggedIn });
   } catch (err) {
+    console.log(err);
     res.status(500).json(err);
   }
 });
 
-// Use withAuth middleware to prevent access to route
-router.get("/profile", withAuth, async (req, res) => {
+// Get one user
+router.get("/user", async (req, res) => {
   try {
-    //find the logged in user based on the session ID
-    const newUserData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ["password"] },
-      include: [{ model: Project }],
-    });
+    const UserData = await User.findByPk(req.params.id);
 
     const user = userData.get({ plain: true });
 
-    res.render("profile", {
-      ...user,
-      logged_in: true,
-    });
+    res.render("profile", { user, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
