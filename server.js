@@ -15,15 +15,18 @@ const SequelizeStore = require('connect-session-sequelize')(session.Store);
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-// Set up handlebars.js engine
+// Set up handlebars.js engine, inform EXPress.js on which template engine to use
 const hbs = exphbs.create({ helpers });
-  app.engine('handlebars', hbs.engine); 
-  app.set('view engine', 'handlebars');
 
 // Session
 const sess = {
   secret: 'process.env.DB_SECRET',
-  cookie: {};
+  cookie: {
+    maxAge: 300000,
+    httpOnly: true,
+    secure: false,
+    sameSite: 'strict',
+  };
   resave: false,
   saveUninitialized: true,
   store: new SequelizeStore({
@@ -33,15 +36,20 @@ const sess = {
 
 app.use(session(sess));
 
+// Inform EXPress.js on which template engine to use
+app.engine('handlebars', hbs.engine); 
+app.set('view engine', 'handlebars');
+
+
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true}));
-app.use(express.static(path.join(_dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Turn on routes
 app.use(routes);
 
 // Turn on the connection to the db and server
-sequelize.sync().then(() => {
+sequelize.sync({ force: false}).then(() => {
   app.listen(PORT, () => console.log('Now Listening'));
 });

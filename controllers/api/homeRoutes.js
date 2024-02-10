@@ -15,8 +15,10 @@ router.get("/", async (req, res) => {
       ],
     });
 
+    // Serialize data so the template can read it
     const posts = dbPostData.map((blog) => posts.get({ plain: true }));
 
+  // Pass serialized data and session flag into template
     res.render("homepage", {
       posts,
       loggedIn: req.session.loggedIn,
@@ -28,45 +30,32 @@ router.get("/", async (req, res) => {
 });
 
 // Get one Post
-// router.get("/post/:id", async (req, res) => {
-//   // If user is not logged in, redirect the user to the login page
-//   if (!req.session.loggedIn) {
-//     res.redirect('/login');
-//   } else {
-//     //If user is logged in, allow them to view the posts
-//     try {
-//       const dbPostData = await Post.findByPk(req.params.id, {
-//         include [
-//           {
-//             model: User,
-//             attributes: [
+router.get('/post/:id', async (req, res) => {
+  try {
+    const dbPostData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ['name'],
+        },
+      ],
+    });
 
-//             ]
-//           }
-//         ]
-//       })
-//     }
-//   }
-// });
-
-// Serialize date 
-
-// Pass serialized data
 
 // Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
+router.get("/profile", withAuth, async (req, res) => {
   try {
     //find the logged in user based on the session ID
     const newUserData = await User.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-      include: [{ model: Project }],
+      attributes: { exclude: ["password"] },
+      include: [{ model: Post }],
     });
 
     const user = userData.get({ plain: true });
 
-    res.render('profile', {
+    res.render("profile", {
       ...user,
-      logged_in: true
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);
@@ -76,11 +65,37 @@ router.get('/profile', withAuth, async (req, res) => {
 router.get("login", (req, res) => {
   // If user is already logged in, redirect the request to another route
   if (req.session.logged_in) {
-    res.redirect("/profile");
+    res.redirect("/");
     return;
   }
-  
+
   res.render("login");
+});
+
+router.get("/sign-up", (req, res) => {
+  if (req.session.logged_in) {
+    res.redirect("/");
+    return;
+  }
+  res.render("sign-up");
+});
+
+router.post("/sign-up", async (req, res) => {
+  try {
+    const userData = await User.create({
+      username: req.body.username,
+      password: req.body.password,
+    });
+    req.session.save(() => {
+      req.session.user_id = userData.id;
+      req.session.username = userData.username;
+      req.session.logged_in = true;
+
+      res.status(200).json(userData);
+    });
+  } catch (err) {
+    res.status(400).json(err);
+  }
 });
 
 module.exports = router;
