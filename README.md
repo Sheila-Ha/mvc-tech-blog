@@ -2,7 +2,7 @@
 by Sheila Hanson ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)  
 ![alt text](assets/img/logo.png)  
 ## Description <!-- omit from toc -->
-THis project is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers' posts as well. This is built from scratch and deployed using Heroku. This app is following a MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM and the express-session npm package fro authentication.
+This project is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers' posts as well. This is built from scratch and deployed using Heroku. This app is following a MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM and the express-session npm package fro authentication.
 
 ## Table of Contents <!-- omit from toc -->
   
