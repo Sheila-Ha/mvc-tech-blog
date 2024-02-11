@@ -1,7 +1,8 @@
 const router = require("express").Router();
-const { Project, User } = require("../../models");
+const { Project, User } = require("../models");
 // Wk 14, 3 day 1:25
-const { isAuthenticatedUser } = require("../../middleware/is-authenticated");
+// const { isAuthenticatedUser } = require("../middleware/is-authenticated");
+const withAuth = require('../utils/auth');
 
 // Get all projects for homepage
 router.get("/", async (req, res) => {
@@ -29,7 +30,7 @@ router.get("/", async (req, res) => {
   }
 });
 // (1:20 3rd day)
-router.use(isAuthenticatedUser);
+router.use(withAuth);
 
 // Get one project
 router.get("/project/:id", async (req, res) => {
@@ -82,7 +83,7 @@ router.get("/sign-up", (req, res) => {
   res.render("sign-up");
 });
 
-router.project("/sign-up", async (req, res) => {
+router.post("/sign-up", async (req, res) => {
   try {
     const userData = await User.create({
       username: req.body.username,
