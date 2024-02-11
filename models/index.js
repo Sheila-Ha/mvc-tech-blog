@@ -3,11 +3,12 @@ const Project = require('./Project');
 
 User.hasMany(Project, {
   foreignKey: 'user_id',
-  onDelete: 'CASCADE'
+  onDelete: 'SET NULL'
 });
 
 Project.belongsTo(User, {
-  foreignKey: 'user_id'
+  foreignKey: 'user_id',
+  onDelete: 'SET NULL'
 });
 
 module.exports = { User, Project };
