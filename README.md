@@ -1,6 +1,6 @@
 # mvc-tech-blog<!-- omit from toc -->
 by Sheila Hanson ![Github license](https://img.shields.io/badge/license-MIT-blue.svg)  
- ![alt text](public/assets/assets/img/logo.png)
+ ![alt text](public/assets/img/logo.png)
 ## Description <!-- omit from toc -->
 This project is a CMS-style blog site similar to a Wordpress site, where developers can publish their blog posts and comment on other developers' posts as well. This is built from scratch and deployed using Heroku. This app is following a MVC paradigm in its architectural structure, using Handlebars.js as the templating language, Sequelize as the ORM and the express-session npm package fro authentication.
 
@@ -98,7 +98,7 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
            -  password - [enter your password]  
            -  source schema.sql  
            -  quit (this is going to end the sql shell = Bye)  
-   ![alt text](assets/img/mysqlstartup.png)
+   ![alt text](public/assets/img/database.png)
 - Run seeds
   - JS server.js - right click server.js
       - Then open in an integrated terminal and type the follow commands in  
@@ -106,9 +106,8 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
           - npm run seed  
       - Starting the server - type the following below in the command line
           - npm run watch  
-           - response on last line = App listening on port 3001!  
-  ![alt text](assets/img/npmi.png)  
-![alt text](assets/img/npmrunwatch.png)
+           - response on last line = Now Listening
+  ![alt text](public/assets/img/seeds.png)
 - Insomnia - testing will be done here
 
  - Database Model Diagram  
