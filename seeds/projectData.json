@@ -1,21 +1,26 @@
 [
   {
     "title": "Traditional Bone-in Wings Near Me",
-    "description": "A mobile app that will send you notifications whenever restaurants near by has bone-in wings on the menu.",
+    "contents": "A mobile app that will send you notifications whenever restaurants near by has bone-in wings on the menu.",
+    "date_created": "2019-01-23 09:01:23",
     "needed_funding": 5000
   },
   {
     "title": "The Ultimate Animal Quiz",
-    "description": "A web app that will give users 10 new unique questions each day and track their progress of their knowledge in various categories of animals in different climates, countries and species!",
+    "contents": "A web app that will give users 10 new unique questions each day and track their progress of their knowledge in various categories of animals in different climates, countries and species!",
+    "date_created": "2021-10-10 10:10:22",
     "needed_funding": 10000
   },
   {
     "title": "Power Washing",
-    "description": "A game for Windows and macOS where players power-wash graffiti, hog trailers/barns, decks, homes and so on.",
+    "contents": "A game for Windows and macOS where players power-wash graffiti, hog trailers/barns, decks, homes and so on.",
+    "date_created": "2020-12-14 17:05:20",
     "needed_funding": 800
   },
   {
     "title": "Test",
-    "description": "test"
+    "contents": "test",
+    "date_created": "2019-11-18 21:30:40",
+    "needed_funding": 100
   }
 ]
