@@ -108,6 +108,7 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
           - npm run watch  
            - response on last line = Now Listening
   ![alt text](public/assets/img/seeds.png)
+  ![alt text](public/assets/img/seeds2.png)
 - Insomnia - testing will be done here
 
  - Database Model Diagram  
