@@ -3,26 +3,30 @@ const { Project, User } = require('../models');
 const withAuth = require('../utils/auth');
 
 router.get('/', async (req, res) => {
+  //console.log('test');
   try {
     // Get all projects and JOIN with user data
     const projectData = await Project.findAll({
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });
-
+    // console.log('PROJECT DATA:');
+    // console.log(projectData);
     // Serialize data so the template can read it
     const projects = projectData.map((project) => project.get({ plain: true }));
-
+    // console.log('PROJECTS:');
+    // console.log(projects);
     // Pass serialized data and session flag into template
     res.render('homepage', { 
       projects, 
       logged_in: req.session.logged_in 
     });
   } catch (err) {
+    console.log('error!');
     res.status(500).json(err);
   }
 });
@@ -33,7 +37,7 @@ router.get('/project/:id', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
+          attributes: ['username'],
         },
       ],
     });

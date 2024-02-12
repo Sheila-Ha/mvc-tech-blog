@@ -21,6 +21,7 @@ Project.init(
     date_created: {
       type: DataTypes.DATE,
       allowNull: false,
+      defaultValue: DataTypes.NOW,
     },
     needed_funding: {
       type: DataTypes.FLOAT,
@@ -36,7 +37,7 @@ Project.init(
   },
   {
     sequelize,
-    timestamp: false,
+    timestamps: false,
     freezeTableName: true,
     underscored: true,
     modelName: 'project',

@@ -3,7 +3,7 @@ const router = require('express').Router();
 const { logRequest } = require('../middleware/logging.js');
 
 const apiRoutes = require('./api');
-const homeRoutes = require('./homeRoutes');
+const homeRoutes = require('./homeRoutes.js');
 
 // router.use(logRequest);
 router.use('/', homeRoutes);

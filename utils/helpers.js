@@ -1,14 +1,14 @@
 module.exports = {
-  format_time: (date) => {
+  format_date: (date) => {
     // Format as mm/dd/yyyy
-    return date.toLocalTimeString();
+    return date.toLocaleDateString();
   },
   format_amount: (amount) => {
     // Format numbers with commas
     return parseInt(amount).toLocaleString();
   },
   get_emoji: () => {
-    const randomNum = Math.randon();
+    const randomNum = Math.random();
 
     // Return a random emoji
     if (randomNum > 0.7) {
