@@ -3,9 +3,13 @@ const { Project } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 router.post('/', withAuth, async (req, res) => {
+  console.log('projectRoutes post "/"');
+  console.log(req.body);
   try {
     const newProject = await Project.create({
-      ...req.body,
+      title: req.body.name,
+      contents: req.body.description,
+      needed_funding: req.body.needed_funding,
       user_id: req.session.user_id,
     });
 
