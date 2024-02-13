@@ -1,12 +1,12 @@
 
 const withAuth = (req, res, next) => {
     // If the user is not logged in, redirect the user to the login page
-  // This is directly from the `/project/:id` and `/user/:id` routes
+  // This is directly from the `/blog/:id` and `/user/:id` routes
 
   if (!req.session.logged_in) {
     res.redirect('/login');
   } else {
-        // If the user is logged in, execute the route function that will allow them to view the projects
+        // If the user is logged in, execute the route function that will allow them to view the blogs
     // We call next() if the user is authenticated
     next();
   }
