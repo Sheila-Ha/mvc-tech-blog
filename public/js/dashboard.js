@@ -47,13 +47,11 @@ const editButtonHandler = async (event) => {
     });
     
     const blog = await response.json();
-    console.log(blog);
+    //console.log(blog);
 
     if (response.ok) {
+      // Go to the edit page for this blog ID
       document.location.replace('/edit/' + blog.id);
-
-        // Load data into fields
-        //document.getElementById('blog-title').value = blog.title;
     } else {
       alert('Failed to find blog');
     }
