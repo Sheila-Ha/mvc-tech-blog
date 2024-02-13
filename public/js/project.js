@@ -15,9 +15,7 @@ const newProjectFormHandler = async (event) => {
     });
     console.log(response);
     if (response.ok) {
-      console.log(response); // TODO: see if you can get project ID out of this
-      const projectId = response.id;
-      document.location.replace('/project/' + projectId);
+      document.location.replace('/profile');
     } else {
       alert(response.statusText);
     }
