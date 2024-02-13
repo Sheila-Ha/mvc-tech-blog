@@ -50,7 +50,10 @@ const editButtonHandler = async (event) => {
     console.log(blog);
 
     if (response.ok) {
-        // Load data into fields?
+      document.location.replace('/edit/' + blog.id);
+
+        // Load data into fields
+        //document.getElementById('blog-title').value = blog.title;
     } else {
       alert('Failed to find blog');
     }
