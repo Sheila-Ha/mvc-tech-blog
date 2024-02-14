@@ -109,24 +109,43 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
            - response on last line = Now Listening
   ![alt text](public/assets/img/seeds.png)
   ![alt text](public/assets/img/seeds2.png)
-- Insomnia - testing will be done here
+- Insomnia - When I first started the project and was testing  
+  
+   ![alt text](public/assets/img/Insomnia.png)
 
  - Database Model Diagram  
- ![alt text](public/assets/img/EER.png)  
   
-- Homepage view  
+    ![alt text](public/assets/img/EER.png)  
+  
+- Homepage view  - click on "My Blogs!" to go to homepage
+  
   ![alt text](public/assets/img/homepagepng.png)  
 
 - Dashboard, Login and Signup  
-  ![alt text](public/assets/img/dashboard.png)  
   
+  ![alt text](public/assets/img/dashboard.png)  
+
+- Creating a new blog, edit and delete existing blogs
+  
+  ![alt text](public/assets/img/creating_a_new_blog.png)
+
 - Commenting on an individual blog  
+  
    ![alt text](public/assets/img/blog_add_comment.png)
 ## Features
- - Showing the option to incorporate funding 
-   - "Fund this Blog!" button is non functioning on purpose
+  - Showing the option to incorporate funding at a future time.
+    - "Fund this Blog!" button is non functioning on purpose
+  - I put my own twist on the Login screen - made it more user friendly to choose login or signup on the same screen
+  - Before you login the upper right corner says login
+    - Once you are logged in the word switches to logout - then you know you are signed in
+  - Added emojis to display throughout the project
 
 ## Challenges  
+- This project was VERY large, file structure and naming conventions were a challenge.  
+- Figuring out how all the pieces should flow and come together was a little mind boggling.
+- A couple typos stumped me longer than it should have.  
+- Understanding handlebars
+- I wanted to put a little of my own twist on to the project with look and functionality
 
 
 
@@ -147,7 +166,7 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
 U of M teachers and materials from bootcamp
 
 ## Testing
-
+- Insomina was used start to finish of the project
 
 
 ## Questions
