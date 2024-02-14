@@ -112,12 +112,19 @@ This project is a CMS-style blog site similar to a Wordpress site, where develop
 - Insomnia - testing will be done here
 
  - Database Model Diagram  
-![alt text](<assets/img/EER Diagram.png>)  
+ ![alt text](public/assets/img/EER.png)  
   
-  DEMO: (https:)
+- Homepage view  
+  ![alt text](public/assets/img/homepagepng.png)  
 
+- Dashboard, Login and Signup  
+  ![alt text](public/assets/img/dashboard.png)  
+  
+- Commenting on an individual blog  
+   ![alt text](public/assets/img/blog_add_comment.png)
 ## Features
- 
+ - Showing the option to incorporate funding 
+   - "Fund this Blog!" button is non functioning on purpose
 
 ## Challenges  
 
