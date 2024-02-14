@@ -28,7 +28,7 @@ router.post('/login', async (req, res) => {
   try {
     console.log('test - userRoutes router.post /login');
     const userData = await User.findOne({ where: { email: req.body.email } });
-    console.log(userData);
+    //console.log(userData);
     if (!userData) {
       res
         .status(400)

@@ -1,21 +1,21 @@
-const newBlogFormHandler = async (event) => {
+const newCommentFormHandler = async (event) => {
   event.preventDefault();
-  // console.log('newBlogFormHandler');
-  const title = document.querySelector('#blog-title').value.trim();
-  const funding = document.querySelector('#blog-funding').value.trim();
-  const post = document.querySelector('#blog-post').value.trim();
-
+  console.log('newCommentFormHandler');
+  const comment = document.querySelector('#comment').value.trim();
+  const blog_id = document.querySelector('.btn-create').value;
   // console.log(title, funding, post);
 
-  if (title && funding && post) {
-    const response = await fetch('/api/blog', {
+  if (comment) {
+    const response = await fetch('/api/comments', {
       method: 'POST',
-      body: JSON.stringify({ title, funding, post }),
+      body: JSON.stringify({ comment, blog_id }),
       headers: { 'Content-Type': 'application/json' },
     });
     // console.log(response);
     if (response.ok) {
-      document.location.replace('/dashboard');
+      // Refresh the page to show the comment
+      // https://www.freecodecamp.org/news/javascript-refresh-page-how-to-reload-a-page-in-js/
+      document.location.reload();
     } else {
       alert(response.statusText);
     }
@@ -23,5 +23,5 @@ const newBlogFormHandler = async (event) => {
 };
 
 document
-  .querySelector('.new-blog-form')
-  .addEventListener('submit', newBlogFormHandler);
+  .querySelector('.new-comment-form')
+  .addEventListener('submit', newCommentFormHandler);

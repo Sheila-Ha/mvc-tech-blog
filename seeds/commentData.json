@@ -1,0 +1,18 @@
+[
+  {
+    "comment_content": "I love wings!",
+    "blog_id": 1
+  },
+  {
+    "comment_content": "How do you eat an elephant?",
+    "blog_id": 2
+  },
+  {
+    "comment_content": "Yadda yadda!",
+    "blog_id": 3
+  },
+  {
+    "comment_content": "This is my test comment.",
+    "blog_id": 3
+  }
+]

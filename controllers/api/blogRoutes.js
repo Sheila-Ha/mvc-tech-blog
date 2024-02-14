@@ -10,7 +10,7 @@ router.get('/:id', withAuth, async (req, res) => {
         {
           model: User,
           attributes: ['username'],
-        },
+        }
       ],
     });
 
@@ -24,7 +24,7 @@ router.get('/:id', withAuth, async (req, res) => {
 
 router.post('/', withAuth, async (req, res) => {
   console.log('blogRoutes post "/"');
-  console.log(req.body);
+  //console.log(req.body);
   try {
     const newBlog = await Blog.create({
       title: req.body.title,
